@@ -28,11 +28,11 @@ class Rectangle(Shape):
     
     @property
     def area(self):
-        return self.__length * self.__width
+        return self.length * self.width
     
     @property
     def perimeter(self):
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.length)
     
 class Square(Rectangle):
     def __init__(self, side):
@@ -40,5 +40,42 @@ class Square(Rectangle):
 
     @property
     def side(self):
-        return self.__
+        return self.length   
+    
+class Ellipse(Shape):
+    def __init__(self, major_radius, minor_radius):
+        self.__major_radius = major_radius
+        self.__minor_radius = minor_radius
+
+    @property
+    def major_radius(self):
+        return self.__major_radius
+    
+    @property
+    def minor_radius(self):
+        return self.__minor_radius
+    
+    @property
+    def area(self):
+        return pi * self.__minor_radius * self.__major_radius
+    
+    @property
+    def perimeter(self):
+        raise NotImplementedError()
+    
+class Circle(Ellipse):
+    def __init__(self, radius):
+        super().__init__(radius, radius)
+    
+    @property
+    def radius(self):
+        return self.major_radius
+    
+    @property
+    def area(self):
+        return pi * self.radius** 2
+    
+    @property
+    def perimeter(self):
+        return 2 * pi * self.radius
     
