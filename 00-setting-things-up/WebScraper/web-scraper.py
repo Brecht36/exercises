@@ -10,7 +10,7 @@ def extract_urls(url):
     return urls
 
 def main():
-    url = "https://www.coolblue.com"
+    url = "https://www.bol.com"
     urls = extract_urls(url)
     
     for url in urls:
